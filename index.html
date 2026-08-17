@@ -115,7 +115,6 @@
             margin: 30px 0;
         }
 
-        /* قسم يسعدنا حضوركم */
         .section-title {
             font-size: 1.4rem;
             color: var(--primary-color);
@@ -155,7 +154,6 @@
             border-color: var(--primary-color);
         }
 
-        /* أزرار تأكيد الحضور */
         .rsvp-options {
             display: flex;
             gap: 10px;
@@ -182,7 +180,6 @@
             box-shadow: 0 0 0 1px var(--primary-color);
         }
 
-        /* العداد التنازلي */
         .timer {
             display: flex;
             justify-content: center;
@@ -242,6 +239,16 @@
             background: #e8f5e9;
             color: #2e7d32;
             margin-right: 5px;
+        }
+
+        /* الجملة التي في أسفل الصفحة */
+        .footer-message {
+            margin-top: 35px;
+            font-family: 'Amiri', serif;
+            font-size: 1.15rem;
+            color: var(--primary-color);
+            line-height: 1.8;
+            font-weight: 600;
         }
     </style>
 </head>
@@ -309,10 +316,15 @@
         <!-- الرسائل المعروضة -->
     </div>
 
+    <!-- الجملة في آخر الصفحة -->
+    <div class="footer-message">
+        في انتظار تشريفكم 🤍<br>
+        بارك الله لهما وبارك عليهما وجمع بينهما في خير
+    </div>
+
 </div>
 
 <script>
-    // تحديد حالة الحضور الأولي
     let selectedAttendance = "سأحضر ❤️";
 
     function selectRSVP(btn, status) {
@@ -321,7 +333,6 @@
         selectedAttendance = status;
     }
 
-    // العداد التنازلي
     const targetDate = new Date(2026, 8, 11, 19, 0, 0).getTime();
     setInterval(() => {
         const now = new Date().getTime();
@@ -335,7 +346,6 @@
         }
     }, 1000);
 
-    // إرسال النموذج وإضافة الرسالة
     document.getElementById('invitationForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
@@ -352,7 +362,6 @@
 
         list.prepend(newCard);
 
-        // إعادة ضبط المدخلات
         document.getElementById('guestName').value = '';
         document.getElementById('guestMessage').value = '';
         alert("تم إرسال رسالتك وتأكيد حضورك بنجاح! 🤍");
