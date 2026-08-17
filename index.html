@@ -42,6 +42,11 @@
     <div style="margin: 20px 0;">
      <img src="IMG-20260817-WA0005.jpg" alt="صورة الدعوة" style="max-width: 100%; border-radius: 15px;">
     </div>
+<div style="background: #fdfbf7; padding: 15px; border-radius: 12px; margin: 20px 0; text-align: center; border: 1px solid #e0d7c6;">
+  <h3 style="color: #8b7355; margin-bottom: 10px;">⏳ المتبقي على يومنا المميز</h3>
+  <div id="countdown" style="font-size: 1.2rem; font-weight: bold; color: #2c3e50;"></div>
+</div>
+
     
     <div class="details">
       <div><strong>موعد الاحتفال:</strong></div>
@@ -73,5 +78,29 @@
       </form>
     </div>
   </div>
+  <script>
+  const targetDate = new Date("Sep 11, 2026 19:00:00").getTime();
+
+  const timer = setInterval(function() {
+    const now = new Date().getTime();
+    const difference = targetDate - now;
+
+    if (difference < 0) {
+      clearInterval(timer);
+      document.getElementById("countdown").innerHTML = "تم الحفل بحمد الله! 🎉";
+      return;
+    }
+
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+  document.getElementById("countdown").innerHTML = 
+  days + " يوم و " + hours + " ساعة و " + minutes + " دقيقة و " + seconds + " ثانية";
+
+  }, 1000);
+</script>
+
 </body>
 </html>
