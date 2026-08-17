@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>دعوة حفل زفاف</title>
+  <title>دعوة كتب كتاب</title>
   <style>
     body { font-family: sans-serif; background-color: #fcfbfa; color: #333; text-align: center; margin: 0; padding: 20px; }
     .card { background: #ffffff; max-width: 500px; margin: 20px auto; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #eaeaea; }
@@ -12,7 +12,14 @@
     .names span { color: #c0392b; }
     .line { margin: 10px 0; font-size: 1.1rem; }
     .details { background: #fdfbf7; padding: 15px; border-radius: 12px; margin: 20px 0; line-height: 2; }
-    .btn { display: inline-block; background: #27ae60; color: white; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; margin-top: 10px; }
+    .btn { display: inline-block; background: #27ae60; color: white; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; margin-top: 10px; border: none; cursor: pointer; width: 100%; box-sizing: border-box; }
+    .invitation-img { max-width: 100%; height: auto; border-radius: 15px; margin: 15px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    
+    .messages-section { margin-top: 30px; border-top: 2px dashed #eee; padding-top: 20px; text-align: right; }
+    .messages-section h3 { text-align: center; color: #8b7355; margin-bottom: 15px; }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 0.9rem; }
+    .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-family: inherit; }
   </style>
 </head>
 <body>
@@ -24,18 +31,23 @@
     </div>
 
     <div class="line">يسعدنا ويشرفنا دعوتكم</div>
-    <div class="line">لحضور حفل زفاف</div>
+    <div class="line">لحضور حفل كتب كتاب</div>
 
     <div class="names">
-      <div>محمد</div>
+      <div>أحمد</div>
       <span>و</span>
-      <div>ماهينور</div>
+      <div>اسم العروس</div>
+    </div>
+
+    <!-- مكان الصورة -->
+    <div>
+      <img src="poster.jpg" alt="صورة الدعوة" class="invitation-img">
     </div>
     
     <div class="details">
       <div><strong>موعد الاحتفال:</strong></div>
-      <div>11 سبتمبر 2026</div><div>الجمعة</div>
-      
+      <div>الجمعة</div>
+      <div>11 سبتمبر 2026</div>
       <div>الساعة 7:00 مساءً</div>
       <br>
       <div><strong>مكان الاحتفال:</strong></div>
@@ -44,7 +56,23 @@
       <div>الزمالك</div>
     </div>
 
-    <a href="https://maps.app.goo.gl/gvvAuxrQP7KSVHvZ6?g_st=ic" class="btn" target="_blank">📍 الموقع على الخريطة</a>
+    <a href="https://maps.app.goo.gl/gvvAuxrQP7KSVHvZ6?g_st=ic" class="btn" target="_blank" style="text-align: center;">📍 الموقع على الخريطة</a>
+
+    <div class="messages-section">
+      <h3>💌 رسائل الأحباب والتهاني</h3>
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-group">
+          <label for="name">الاسم:</label>
+          <input type="text" id="name" name="name" placeholder="اكتب اسمك هنا" required>
+        </div>
+        <div class="form-group">
+          <label for="message">الرسالة أو التهنئة:</label>
+          <textarea id="message" name="message" rows="4" placeholder="اكتب مباركتك أو تهنئتك هنا..." required></textarea>
+        </div>
+        <button type="submit" class="btn">إرسال التهنئة 🤍</button>
+      </form>
+    </div>
   </div>
 </body>
 </html>
+
