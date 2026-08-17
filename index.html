@@ -65,16 +65,15 @@
             margin: 15px 0;
         }
 
-        /* الصورة بحواف دائرية كالموجودة بالصورة */
+        /* تعديل كود الصورة لتظهر كاملة وبدون قص */
         .couple-img {
             width: 100%;
-            max-height: 300px;
+            height: auto;
             border-radius: 20px;
-            object-fit: cover;
             margin: 10px 0 25px 0;
+            display: block;
         }
 
-        /* تنسيق قسم الموعد والمكان مطبق بنفس الشكل */
         .info-section {
             margin: 20px 0;
         }
@@ -274,10 +273,9 @@
     
     <div class="names">محمد &amp; ماهينور</div>
 
-    <!-- صورة العروسين -->
-    <img src="IMG-20260817-WA0005.jpg" alt="صورة العروسين" class="couple-img">
+    <!-- استبدل اسم الملف هنا باسم صورتك -->
+    <img src="wedding.jpg" alt="صورة العروسين" class="couple-img">
 
-    <!-- قسم الموعد والمكان بالشكل الجديد -->
     <div class="info-section">
         <div class="info-label">موعد الاحتفال</div>
         <div class="info-title">الجمعة ١١ سبتمبر ٢٠٢٦</div>
@@ -290,7 +288,6 @@
         <a href="https://maps.app.goo.gl/gvvAuxrQP7KSVHvZ6?g_st=ic" target="_blank" class="map-btn">📍 الموقع على الخريطة</a>
     </div>
 
-    <!-- العداد التنازلي -->
     <div class="timer">
         <div class="time-box"><span id="days">0</span><label>يوم</label></div>
         <div class="time-box"><span id="hours">0</span><label>ساعة</label></div>
@@ -300,7 +297,6 @@
 
     <hr class="divider">
 
-    <!-- نموذج يسعدنا حضوركم -->
     <div class="section-title">يسعدنا حضوركم 🤍</div>
 
     <form id="invitationForm">
@@ -327,10 +323,8 @@
 
     <hr class="divider">
 
-    <!-- قسم رسائل الأحباب -->
     <div class="section-title">💌 رسائل الأحباب</div>
     <div class="messages-list" id="messagesList">
-        <!-- الرسائل المعروضة -->
     </div>
 
     <div class="footer-message">
