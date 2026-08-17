@@ -1,30 +1,10 @@
-// قم بتحديد تاريخ الفرح هنا (السنة, الشهر - 1, اليوم, الساعة)
-// ملاحظة: الشهور تبدأ من 0 (يناير = 0 ، سبتمبر = 8)
-const eventDate = new Date(2026, 8, 11, 19, 0, 0).getTime();
-
-const timer = setInterval(function() {
-  const now = new Date().getTime();
-  const distance = eventDate - now;
-
-  if (distance < 0) {
-    clearInterval(timer);
-    document.querySelector(".countdown-container").innerHTML = "<h3>مبارك للعروسين! 🤍</h3>";
-    return;
-  }
-
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (تفضل كود كامل وجاهز لصفحة الدعوة بالعداد التنازلي. الكود مصمم بأسلوب أنيق ومناسب للموبايل والشاشات المختلفة، ويمكنك نسخه مباشرة وحفظه في ملف باسم `index.html`.
-
-```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دعوة حفل زفاف</title>
-    <link href="[https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700&display=swap](https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700&display=swap)" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #fdfbf7;
@@ -113,7 +93,6 @@ const timer = setInterval(function() {
             background-color: #6f5a41;
         }
 
-        /* العداد التنازلي */
         .countdown-title {
             font-size: 1.1rem;
             margin-top: 25px;
@@ -164,15 +143,14 @@ const timer = setInterval(function() {
 
     <p>بقلوبٍ يملؤها الفرح والسعادة، نتشرّف بدعوتكم لحضور حفل زفاف</p>
     
-    <div class="names">محمد& ماهينور</div>
+    <div class="names">محمد &amp; ماهينور</div>
 
     <div class="details-box">
         <div class="details-item">📅 <strong>اليوم والتاريخ:</strong> الجمعة، 11 سبتمبر 2026</div>
         <div class="details-item">⏰ <strong>الوقت:</strong> الساعة 7:00 مساءً</div>
-        <div class="details-item">📍 <strong>المكان:</strong> اسم القاعة - المدينة</div>
+        <div class="details-item">📍 <strong>المكان:</strong> نادي ضباط الشرطة بالجزيرة (قاعة إيزيس)</div>
         
-        <!-- استبدل رابط الخريطة برابط المكان الصحيح -->
-        <a href="[https://maps.google.com](https://maps.google.com)" target="_blank" class="map-btn">📍 الموقع على الخريطة</a>
+        <a href="https://maps.app.goo.gl/gvvAuxrQP7KSVHvZ6?g_st=ic" target="_blank" class="map-btn">📍 الموقع على الخريطة</a>
     </div>
 
     <div class="countdown-title">المتبقي على الموعد 🤍</div>
@@ -189,8 +167,6 @@ const timer = setInterval(function() {
 </div>
 
 <script>
-    // حدد تاريخ المناسبة هنا (السنة, الشهر - 1, اليوم, الساعة, الدقيقة)
-    // ملاحظة: شهر سبتمبر هو 8 في JavaScript لأن الشهور تبدأ من 0
     const targetDate = new Date(2026, 8, 11, 19, 0, 0).getTime();
 
     const updateTimer = () => {
