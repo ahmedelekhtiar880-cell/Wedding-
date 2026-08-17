@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دعوة حفل زفاف</title>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- مكتبات Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+
     <style>
         :root {
             --bg-color: #fdfbf7;
@@ -65,7 +70,6 @@
             margin: 15px 0;
         }
 
-        /* تعديل كود الصورة لتظهر كاملة وبدون قص */
         .couple-img {
             width: 100%;
             height: auto;
@@ -273,8 +277,7 @@
     
     <div class="names">محمد &amp; ماهينور</div>
 
-    <!-- استبدل اسم الملف هنا باسم صورتك -->
-    <img src="IMG-20260817-WA0005.jpg" alt="صورة العروسين" class="couple-img">
+    <img src="wedding.jpg" alt="صورة العروسين" class="couple-img">
 
     <div class="info-section">
         <div class="info-label">موعد الاحتفال</div>
@@ -335,6 +338,21 @@
 </div>
 
 <script>
+    // إعدادات Firebase الخاصة بمشروعك
+    const firebaseConfig = {
+        apiKey: "AIzaSyBQWlN7oZ4i6NCm1UvM8jVjv_MP046rysI",
+        authDomain: "widding-eade9.firebaseapp.com",
+        databaseURL: "https://widding-eade9-default-rtdb.firebaseio.com",
+        projectId: "widding-eade9",
+        storageBucket: "widding-eade9.firebasestorage.app",
+        messagingSenderId: "615382298668",
+        appId: "1:615382298668:web:8b4127c846352c633ea189",
+        measurementId: "G-93F4M0MGL2"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
     let selectedAttendance = "سأحضر ❤️";
 
     function selectRSVP(btn, status) {
@@ -343,6 +361,7 @@
         selectedAttendance = status;
     }
 
+    // العداد التنازلي
     const targetDate = new Date(2026, 8, 11, 19, 0, 0).getTime();
     setInterval(() => {
         const now = new Date().getTime();
@@ -356,25 +375,47 @@
         }
     }, 1000);
 
+    // حفظ الرسالة في قاعدة البيانات السحابية
     document.getElementById('invitationForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
         const name = document.getElementById('guestName').value;
         const msg = document.getElementById('guestMessage').value;
+
+        if(name && msg) {
+            database.ref('messages/').push({
+                name: name,
+                message: msg,
+                status: selectedAttendance,
+                timestamp: Date.now()
+            }).then(() => {
+                document.getElementById('guestName').value = '';
+                document.getElementById('guestMessage').value = '';
+                alert("تم إرسال رسالتك وتأكيد حضورك بنجاح! 🤍");
+            }).catch(error => {
+                alert("حدث خطأ، يرجى المحاولة مرة أخرى.");
+                console.error(error);
+            });
+        }
+    });
+
+    // جلب الرسائل وعرضها أونلاين للجميع فور إرسالها
+    database.ref('messages/').on('value', (snapshot) => {
         const list = document.getElementById('messagesList');
-
-        const newCard = document.createElement('div');
-        newCard.className = 'message-card';
-        newCard.innerHTML = `
-            <h4>${name} <span class="status-badge">${selectedAttendance}</span></h4>
-            <p>${msg}</p>
-        `;
-
-        list.prepend(newCard);
-
-        document.getElementById('guestName').value = '';
-        document.getElementById('guestMessage').value = '';
-        alert("تم إرسال رسالتك وتأكيد حضورك بنجاح! 🤍");
+        list.innerHTML = '';
+        const data = snapshot.val();
+        if(data) {
+            Object.keys(data).reverse().forEach((key) => {
+                const item = data[key];
+                const newCard = document.createElement('div');
+                newCard.className = 'message-card';
+                newCard.innerHTML = `
+                    <h4>${item.name} <span class="status-badge">${item.status}</span></h4>
+                    <p>${item.message}</p>
+                `;
+                list.appendChild(newCard);
+            });
+        }
     });
 </script>
 
