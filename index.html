@@ -42,6 +42,17 @@
             border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
+        /* صورة العروسين */
+        .couple-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
         .quran {
             font-family: 'Amiri', serif;
             font-size: 1.15rem;
@@ -77,7 +88,7 @@
             font-size: 1.05rem;
         }
 
-        .map-btn {
+        .map-btn, .btn {
             display: inline-block;
             margin-top: 15px;
             padding: 10px 20px;
@@ -86,13 +97,17 @@
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
+            border: none;
+            cursor: pointer;
             transition: 0.3s;
+            width: 100%;
         }
 
-        .map-btn:hover {
+        .map-btn:hover, .btn:hover {
             background-color: #6f5a41;
         }
 
+        /* العداد التنازلي */
         .countdown-title {
             font-size: 1.1rem;
             margin-top: 25px;
@@ -126,16 +141,82 @@
             font-size: 0.75rem;
         }
 
+        /* الأقسام الإضافية */
+        .section-box {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: right;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .messages-list {
+            margin-top: 15px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .message-card {
+            background: #f9f9f9;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-right: 3px solid var(--primary-color);
+        }
+
+        .message-card h4 {
+            font-size: 0.95rem;
+            color: var(--primary-color);
+            margin-bottom: 3px;
+        }
+
+        .message-card p {
+            font-size: 0.88rem;
+            color: #444;
+        }
+
         .footer {
             margin-top: 30px;
             font-size: 0.95rem;
             color: #777;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
+
+    <!-- صورة العروسين (غير رابط الصورة بحسب رابط صورتك) -->
+    <img src="https://via.placeholder.com/150" alt="صورة العروسين" class="couple-img" id="weddingPhoto">
+
     <div class="quran">
         <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
         «وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً»
@@ -153,6 +234,7 @@
         <a href="https://maps.app.goo.gl/gvvAuxrQP7KSVHvZ6?g_st=ic" target="_blank" class="map-btn">📍 الموقع على الخريطة</a>
     </div>
 
+    <!-- العداد التنازلي -->
     <div class="countdown-title">المتبقي على الموعد 🤍</div>
     <div class="timer">
         <div class="time-box"><span id="days">0</span><label>يوم</label></div>
@@ -161,12 +243,55 @@
         <div class="time-box"><span id="seconds">0</span><label>ثانية</label></div>
     </div>
 
+    <!-- تأكيد الحضور (RSVP) -->
+    <div class="section-box">
+        <div class="section-title">✉️ تأكيد الحضور</div>
+        <form id="rsvpForm">
+            <div class="form-group">
+                <label>الاسم الكريم:</label>
+                <input type="text" id="guestName" class="form-control" placeholder="أدخل اسمك" required>
+            </div>
+            <div class="form-group">
+                <label>هل ستحضر المفاجأة؟</label>
+                <select id="attendance" class="form-control">
+                    <option value="يشرفني الحضور 🎉">يشرفني الحضور 🎉</option>
+                    <option value="أعتذر عن الحضور 🤍">أعتذر عن الحضور 🤍</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>عدد الأفراد:</label>
+                <input type="number" id="guestCount" class="form-control" value="1" min="1" max="5">
+            </div>
+            <button type="submit" class="btn">تأكيد الحضور</button>
+        </form>
+        <p id="rsvpStatus" style="text-align: center; margin-top: 10px; font-weight: bold; color: green; display: none;"></p>
+    </div>
+
+    <!-- صندوق رسائل التهاني -->
+    <div class="section-box">
+        <div class="section-title">💌 رسائل الأحباب</div>
+        <form id="msgForm">
+            <div class="form-group">
+                <input type="text" id="senderName" class="form-control" placeholder="اسمك" required>
+            </div>
+            <div class="form-group">
+                <textarea id="senderMsg" class="form-control" rows="3" placeholder="اكتب تهنئتك أو أمنياتك للعروسين..." required></textarea>
+            </div>
+            <button type="submit" class="btn">إرسال التهنئة</button>
+        </form>
+
+        <div class="messages-list" id="messagesList">
+            <!-- الرسائل ستظهر هنا -->
+        </div>
+    </div>
+
     <div class="footer">
         بارك الله لهما وبارك عليهما وجمع بينهما في خير
     </div>
 </div>
 
 <script>
+    // العداد التنازلي
     const targetDate = new Date(2026, 8, 11, 19, 0, 0).getTime();
 
     const updateTimer = () => {
@@ -187,9 +312,33 @@
             document.querySelector('.timer').innerHTML = "<h3>أهلاً بكم.. حان الموعد! 🎉</h3>";
         }
     };
-
     setInterval(updateTimer, 1000);
     updateTimer();
+
+    // تأكيد الحضور
+    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('guestName').value;
+        const status = document.getElementById('rsvpStatus');
+        status.innerText = `شكراً لك أ/ ${name}، تم تسجيل ردك بنجاح! ❤️`;
+        status.style.display = 'block';
+        this.reset();
+    });
+
+    // إضافة الرسائل
+    document.getElementById('msgForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('senderName').value;
+        const msg = document.getElementById('senderMsg').value;
+
+        const list = document.getElementById('messagesList');
+        const newMsg = document.createElement('div');
+        newMsg.className = 'message-card';
+        newMsg.innerHTML = `<h4>${name}</h4><p>${msg}</p>`;
+        
+        list.prepend(newMsg);
+        this.reset();
+    });
 </script>
 
 </body>
