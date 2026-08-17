@@ -9,9 +9,10 @@
         :root {
             --bg-color: #fdfbf7;
             --card-bg: #ffffff;
-            --primary-color: #8b7355;
+            --primary-color: #634739;
             --text-color: #2c2c2c;
             --accent-color: #d4af37;
+            --light-bg: #faf8f5;
         }
 
         * {
@@ -28,18 +29,17 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 20px 10px;
         }
 
         .container {
             background-color: var(--card-bg);
-            max-width: 500px;
+            max-width: 480px;
             width: 100%;
-            padding: 35px 25px;
+            padding: 30px 20px;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             text-align: center;
-            border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
         .quran {
@@ -47,12 +47,12 @@
             font-size: 1.15rem;
             line-height: 1.8;
             color: var(--primary-color);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .bismillah {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+            font-size: 1.25rem;
+            margin-bottom: 8px;
             font-weight: bold;
         }
 
@@ -61,138 +61,164 @@
             font-size: 2.2rem;
             font-weight: 700;
             color: var(--primary-color);
-            margin: 20px 0 15px 0;
-        }
-
-        /* صورة العروسين تحت الأسماء */
-        .couple-img-container {
-            margin: 10px auto 25px auto;
-            width: 160px;
-            height: 160px;
-            position: relative;
+            margin: 15px 0;
         }
 
         .couple-img {
-            width: 100%;
-            height: 100%;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--accent-color);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            margin: 10px auto 20px auto;
         }
 
         .details-box {
-            background-color: #faf8f5;
-            padding: 20px;
-            border-radius: 12px;
             margin: 20px 0;
-            border: 1px dashed var(--accent-color);
         }
 
-        .details-item {
-            margin: 10px 0;
-            font-size: 1.05rem;
+        .venue-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
         }
 
-        .map-btn, .btn {
+        .venue-sub {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .map-btn, .submit-btn {
             display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
+            padding: 12px 24px;
             background-color: var(--primary-color);
             color: white;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 25px;
             font-weight: 600;
             border: none;
             cursor: pointer;
             transition: 0.3s;
-            width: 100%;
+            width: 80%;
+            font-size: 1rem;
         }
 
-        .map-btn:hover, .btn:hover {
-            background-color: #6f5a41;
+        .map-btn:hover, .submit-btn:hover {
+            opacity: 0.9;
         }
 
-        /* العداد التنازلي */
-        .countdown-title {
-            font-size: 1.1rem;
-            margin-top: 25px;
-            margin-bottom: 10px;
+        hr.divider {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 30px 0;
+        }
+
+        /* قسم يسعدنا حضوركم */
+        .section-title {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+            text-align: right;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
             color: var(--primary-color);
             font-weight: 600;
         }
 
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            background-color: #fff;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+        }
+
+        /* أزرار تأكيد الحضور */
+        .rsvp-options {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+        }
+
+        .rsvp-btn {
+            flex: 1;
+            padding: 12px 5px;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            background: #fff;
+            color: var(--primary-color);
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .rsvp-btn.selected {
+            border-color: var(--primary-color);
+            background-color: #f7f3ef;
+            box-shadow: 0 0 0 1px var(--primary-color);
+        }
+
+        /* العداد التنازلي */
         .timer {
             display: flex;
             justify-content: center;
-            gap: 12px;
-            margin-top: 10px;
+            gap: 10px;
+            margin: 20px 0;
         }
 
         .time-box {
             background: var(--primary-color);
             color: white;
-            padding: 10px;
+            padding: 8px;
             border-radius: 8px;
-            min-width: 65px;
+            min-width: 60px;
         }
 
         .time-box span {
             display: block;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: bold;
         }
 
         .time-box label {
-            font-size: 0.75rem;
-        }
-
-        /* الأقسام الإضافية */
-        .section-box {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            text-align: right;
-        }
-
-        .section-title {
-            font-size: 1.2rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            text-align: center;
-            font-weight: 700;
-        }
-
-        .form-group {
-            margin-bottom: 12px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 0.9rem;
-            color: #555;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-family: inherit;
-            font-size: 0.95rem;
+            font-size: 0.7rem;
         }
 
         .messages-list {
-            margin-top: 15px;
-            max-height: 200px;
+            margin-top: 20px;
+            text-align: right;
+            max-height: 250px;
             overflow-y: auto;
         }
 
         .message-card {
-            background: #f9f9f9;
-            padding: 10px 15px;
-            border-radius: 8px;
+            background: var(--light-bg);
+            padding: 12px 15px;
+            border-radius: 12px;
             margin-bottom: 10px;
             border-right: 3px solid var(--primary-color);
         }
@@ -200,19 +226,22 @@
         .message-card h4 {
             font-size: 0.95rem;
             color: var(--primary-color);
-            margin-bottom: 3px;
+            margin-bottom: 4px;
         }
 
         .message-card p {
             font-size: 0.88rem;
-            color: #444;
+            color: #555;
         }
 
-        .footer {
-            margin-top: 30px;
-            font-size: 0.95rem;
-            color: #777;
-            text-align: center;
+        .status-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            margin-right: 5px;
         }
     </style>
 </head>
@@ -227,24 +256,17 @@
 
     <p>بقلوبٍ يملؤها الفرح والسعادة، نتشرّف بدعوتكم لحضور حفل زفاف</p>
     
-    <!-- أسماء العروسين -->
     <div class="names">محمد &amp; ماهينور</div>
 
-    <!-- صورة العروسين (موجودة هنا تحت الأسماء) -->
-    <div class="couple-img-container">
-        <img src="https://via.placeholder.com/160" alt="صورة العروسين" class="couple-img" id="weddingPhoto">
-    </div>
+    <img src="https://via.placeholder.com/150" alt="صورة العروسين" class="couple-img">
 
     <div class="details-box">
-        <div class="details-item">📅 <strong>اليوم والتاريخ:</strong> الجمعة، 11 سبتمبر 2026</div>
-        <div class="details-item">⏰ <strong>الوقت:</strong> الساعة 7:00 مساءً</div>
-        <div class="details-item">📍 <strong>المكان:</strong> نادي ضباط الشرطة بالجزيرة (قاعة إيزيس)</div>
-        
+        <div class="venue-title">نادي ضباط الشرطة بالجزيرة</div>
+        <div class="venue-sub">قاعة إيزيس — الزمالك</div>
         <a href="https://maps.app.goo.gl/gvvAuxrQP7KSVHvZ6?g_st=ic" target="_blank" class="map-btn">📍 الموقع على الخريطة</a>
     </div>
 
     <!-- العداد التنازلي -->
-    <div class="countdown-title">المتبقي على الموعد 🤍</div>
     <div class="timer">
         <div class="time-box"><span id="days">0</span><label>يوم</label></div>
         <div class="time-box"><span id="hours">0</span><label>ساعة</label></div>
@@ -252,101 +274,88 @@
         <div class="time-box"><span id="seconds">0</span><label>ثانية</label></div>
     </div>
 
-    <!-- تأكيد الحضور (RSVP) -->
-    <div class="section-box">
-        <div class="section-title">✉️ تأكيد الحضور</div>
-        <form id="rsvpForm">
-            <div class="form-group">
-                <label>الاسم الكريم:</label>
-                <input type="text" id="guestName" class="form-control" placeholder="أدخل اسمك" required>
-            </div>
-            <div class="form-group">
-                <label>هل ستحضر المفاجأة؟</label>
-                <select id="attendance" class="form-control">
-                    <option value="يشرفني الحضور 🎉">يشرفني الحضور 🎉</option>
-                    <option value="أعتذر عن الحضور 🤍">أعتذر عن الحضور 🤍</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>عدد الأفراد:</label>
-                <input type="number" id="guestCount" class="form-control" value="1" min="1" max="5">
-            </div>
-            <button type="submit" class="btn">تأكيد الحضور</button>
-        </form>
-        <p id="rsvpStatus" style="text-align: center; margin-top: 10px; font-weight: bold; color: green; display: none;"></p>
-    </div>
+    <hr class="divider">
 
-    <!-- صندوق رسائل التهاني -->
-    <div class="section-box">
-        <div class="section-title">💌 رسائل الأحباب</div>
-        <form id="msgForm">
-            <div class="form-group">
-                <input type="text" id="senderName" class="form-control" placeholder="اسمك" required>
-            </div>
-            <div class="form-group">
-                <textarea id="senderMsg" class="form-control" rows="3" placeholder="اكتب تهنئتك أو أمنياتك للعروسين..." required></textarea>
-            </div>
-            <button type="submit" class="btn">إرسال التهنئة</button>
-        </form>
+    <!-- نموذج يسعدنا حضوركم -->
+    <div class="section-title">يسعدنا حضوركم 🤍</div>
 
-        <div class="messages-list" id="messagesList">
-            <!-- الرسائل ستظهر هنا -->
+    <form id="invitationForm">
+        <div class="form-group">
+            <label>الاسم</label>
+            <input type="text" id="guestName" class="form-control" placeholder="اكتب اسمك" required>
         </div>
+
+        <div class="form-group">
+            <label>رسالتك لمحمد وماهينور</label>
+            <textarea id="guestMessage" class="form-control" rows="3" placeholder="اكتب جملة جميلة للعروسين" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>تأكيد الحضور</label>
+            <div class="rsvp-options">
+                <button type="button" class="rsvp-btn selected" onclick="selectRSVP(this, 'سأحضر ❤️')">سأحضر ❤️</button>
+                <button type="button" class="rsvp-btn" onclick="selectRSVP(this, 'لن أستطيع الحضور')">لن أستطيع الحضور</button>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn" style="margin-top: 15px;">إرسال 🤍</button>
+    </form>
+
+    <hr class="divider">
+
+    <!-- قسم رسائل الأحباب -->
+    <div class="section-title">💌 رسائل الأحباب</div>
+    <div class="messages-list" id="messagesList">
+        <!-- الرسائل المعروضة -->
     </div>
 
-    <div class="footer">
-        بارك الله لهما وبارك عليهما وجمع بينهما في خير
-    </div>
 </div>
 
 <script>
+    // تحديد حالة الحضور الأولي
+    let selectedAttendance = "سأحضر ❤️";
+
+    function selectRSVP(btn, status) {
+        document.querySelectorAll('.rsvp-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selectedAttendance = status;
+    }
+
     // العداد التنازلي
     const targetDate = new Date(2026, 8, 11, 19, 0, 0).getTime();
-
-    const updateTimer = () => {
+    setInterval(() => {
         const now = new Date().getTime();
-        const difference = targetDate - now;
+        const diff = targetDate - now;
 
-        if (difference > 0) {
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-            document.getElementById('days').innerText = days;
-            document.getElementById('hours').innerText = hours;
-            document.getElementById('minutes').innerText = minutes;
-            document.getElementById('seconds').innerText = seconds;
-        } else {
-            document.querySelector('.timer').innerHTML = "<h3>أهلاً بكم.. حان الموعد! 🎉</h3>";
+        if (diff > 0) {
+            document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById('seconds').innerText = Math.floor((diff % (1000 * 60)) / 1000);
         }
-    };
-    setInterval(updateTimer, 1000);
-    updateTimer();
+    }, 1000);
 
-    // تأكيد الحضور
-    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+    // إرسال النموذج وإضافة الرسالة
+    document.getElementById('invitationForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        const name = document.getElementById('guestName').value;
-        const status = document.getElementById('rsvpStatus');
-        status.innerText = `شكراً لك أ/ ${name}، تم تسجيل ردك بنجاح! ❤️`;
-        status.style.display = 'block';
-        this.reset();
-    });
-
-    // إضافة الرسائل
-    document.getElementById('msgForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('senderName').value;
-        const msg = document.getElementById('senderMsg').value;
-
-        const list = document.getElementById('messagesList');
-        const newMsg = document.createElement('div');
-        newMsg.className = 'message-card';
-        newMsg.innerHTML = `<h4>${name}</h4><p>${msg}</p>`;
         
-        list.prepend(newMsg);
-        this.reset();
+        const name = document.getElementById('guestName').value;
+        const msg = document.getElementById('guestMessage').value;
+        const list = document.getElementById('messagesList');
+
+        const newCard = document.createElement('div');
+        newCard.className = 'message-card';
+        newCard.innerHTML = `
+            <h4>${name} <span class="status-badge">${selectedAttendance}</span></h4>
+            <p>${msg}</p>
+        `;
+
+        list.prepend(newCard);
+
+        // إعادة ضبط المدخلات
+        document.getElementById('guestName').value = '';
+        document.getElementById('guestMessage').value = '';
+        alert("تم إرسال رسالتك وتأكيد حضورك بنجاح! 🤍");
     });
 </script>
 
