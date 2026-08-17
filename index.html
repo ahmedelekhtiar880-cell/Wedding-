@@ -1,157 +1,219 @@
+// قم بتحديد تاريخ الفرح هنا (السنة, الشهر - 1, اليوم, الساعة)
+// ملاحظة: الشهور تبدأ من 0 (يناير = 0 ، سبتمبر = 8)
+const eventDate = new Date(2026, 8, 11, 19, 0, 0).getTime();
+
+const timer = setInterval(function() {
+  const now = new Date().getTime();
+  const distance = eventDate - now;
+
+  if (distance < 0) {
+    clearInterval(timer);
+    document.querySelector(".countdown-container").innerHTML = "<h3>مبارك للعروسين! 🤍</h3>";
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (تفضل كود كامل وجاهز لصفحة الدعوة بالعداد التنازلي. الكود مصمم بأسلوب أنيق ومناسب للموبايل والشاشات المختلفة، ويمكنك نسخه مباشرة وحفظه في ملف باسم `index.html`.
+
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>دعوة زفاف</title>
-  <style>
-  body { 
-    font-family: sans-serif; 
-    background-color: #f7f6f2; 
-    color: #52393b; 
-    text-align: center; 
-    margin: 0; 
-    padding: 20px; 
-  }
-  .card { 
-    background: #fff1e6;  
-    max-width: 500px; 
-    margin: 20px auto; 
-    padding: 30px; 
-    border-radius: 20px; 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
-    border: 1px solid #e2e8e0; 
-  }
-  .quran { 
-    color:#e2e8e0; 
-    font-size: 1.1rem; 
-    line-height: 2; 
-    margin-bottom: 20px; 
-  }
-  .line { 
-    margin: 10px 0; 
-    font-size: 1.1rem; 
-    color: #3b5239; 
-  }
-  .names { 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    gap: 10px; 
-    font-size: 2.2rem; 
-    color: #1c2b1a; 
-    font-weight: bold; 
-    margin: 20px 0; 
-  }
-  .names span:nth-child(2) { 
-    color: #7a3e3e; /* لون حرف الواو الفتنسيجي/العنابي الناعم */
-  }
-  .details { 
-    background: #f1f4f0; 
-    padding: 15px; 
-    border-radius: 12px; 
-    margin: 20px 0; 
-    line-height: 2; 
-    color: #2b3a2a; 
-  }
-  .btn { 
-    display: inline-block; 
-    background: #3b5239; 
-    color: white; 
-    text-decoration: none; 
-    padding: 12px 20px; 
-    border-radius: 8px; 
-    font-weight: bold; 
-    margin-top: 10px; 
-    border: none; 
-    cursor: pointer; 
-    width: 100%; 
-    box-sizing: border-box; 
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دعوة حفل زفاف</title>
+    <link href="[https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700&display=swap](https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700&display=swap)" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fdfbf7;
+            --card-bg: #ffffff;
+            --primary-color: #8b7355;
+            --text-color: #2c2c2c;
+            --accent-color: #d4af37;
+        }
 
-    .form-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 0.9rem; }
-    .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-family: inherit; }
-  </style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            max-width: 500px;
+            width: 100%;
+            padding: 35px 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .quran {
+            font-family: 'Amiri', serif;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+        }
+
+        .bismillah {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .names {
+            font-family: 'Amiri', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 20px 0;
+        }
+
+        .details-box {
+            background-color: #faf8f5;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px dashed var(--accent-color);
+        }
+
+        .details-item {
+            margin: 10px 0;
+            font-size: 1.05rem;
+        }
+
+        .map-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .map-btn:hover {
+            background-color: #6f5a41;
+        }
+
+        /* العداد التنازلي */
+        .countdown-title {
+            font-size: 1.1rem;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .time-box {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            min-width: 65px;
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .time-box label {
+            font-size: 0.75rem;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 0.95rem;
+            color: #777;
+        }
+    </style>
 </head>
 <body>
-  <div class="card">
+
+<div class="container">
     <div class="quran">
-      <div>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
-      <div>وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا</div>
-      <div>وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً</div>
+        <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+        «وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً»
     </div>
 
-    <div class="line">يسعدنا ويشرفنا دعوتكم</div>
-    <div class="line">لحضور حفل زفاف</div>
-
-  <div class="names">
-  <span>محمد</span>
-  <span> و </span>
-  <span>ماهينور</span>
-</div>
-    <!-- قسم الصورة -->
-    <div style="margin: 20px 0;">
-     <img src="IMG-20260817-WA0005.jpg" alt="صورة الدعوة" style="max-width: 100%; border-radius: 15px;">
-    </div>
-<div style="background: #fdfbf7; padding: 15px; border-radius: 12px; margin: 20px 0; text-align: center; border: 1px solid #e0d7c6;">
-  <h3 style="color: #8b7355; margin-bottom: 10px;">⏳ المتبقي على يومنا المميز</h3>
-  <div id="countdown" style="font-size: 1.2rem; font-weight: bold; color: #2c3e50;"></div>
-</div>
-
+    <p>بقلوبٍ يملؤها الفرح والسعادة، نتشرّف بدعوتكم لحضور حفل زفاف</p>
     
-    <div class="details">
-      <div><strong>موعد الاحتفال:</strong></div>
-      <div>الجمعة</div>
-      <div>11 سبتمبر 2026</div>
-      <div>الساعة 7:00 مساءً</div>
-      <br>
-      <div><strong>مكان الاحتفال:</strong></div>
-      <div>نادي ضباط الشرطة بالجزيرة</div>
-      <div>قاعة إيزيس</div>
-      <div>الزمالك</div>
+    <div class="names">محمد& ماهينور</div>
+
+    <div class="details-box">
+        <div class="details-item">📅 <strong>اليوم والتاريخ:</strong> الجمعة، 11 سبتمبر 2026</div>
+        <div class="details-item">⏰ <strong>الوقت:</strong> الساعة 7:00 مساءً</div>
+        <div class="details-item">📍 <strong>المكان:</strong> اسم القاعة - المدينة</div>
+        
+        <!-- استبدل رابط الخريطة برابط المكان الصحيح -->
+        <a href="[https://maps.google.com](https://maps.google.com)" target="_blank" class="map-btn">📍 الموقع على الخريطة</a>
     </div>
 
-    <a href="https://maps.app.goo.gl/gvvAuxrQP7KSVHvZ6?g_st=ic" class="btn" target="_blank" style="text-align: center;">📍 الموقع على الخريطة</a>
-
-    <!-- قسم الرسائل والتهاني -->
-    <div class="messages-section">
-      <h3>💌 رسائل الأحباب والتهاني</h3>
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <div class="form-group">
-          <label for="name">الاسم:</label>
-          <input type="text" id="name" name="name" placeholder="اكتب اسمك هنا" required>
-        </div>
-        <div class="form-group">
-          <label for="message">الرسالة أو التهنئة:</label>
-          <textarea id="message" name="message" rows="4" placeholder="اكتب مباركتك أو تهنئتك هنا..." required></textarea>
-        </div>
-        <button type="submit" class="btn">إرسال التهنئة 🤍</button>
-      </form>
+    <div class="countdown-title">المتبقي على الموعد 🤍</div>
+    <div class="timer">
+        <div class="time-box"><span id="days">0</span><label>يوم</label></div>
+        <div class="time-box"><span id="hours">0</span><label>ساعة</label></div>
+        <div class="time-box"><span id="minutes">0</span><label>دقيقة</label></div>
+        <div class="time-box"><span id="seconds">0</span><label>ثانية</label></div>
     </div>
-  </div>
-  <script>
-  const targetDate = new Date("Sep 11, 2026 19:00:00").getTime();
 
-  const timer = setInterval(function() {
-    const now = new Date().getTime();
-    const difference = targetDate - now;
+    <div class="footer">
+        بارك الله لهما وبارك عليهما وجمع بينهما في خير
+    </div>
+</div>
 
-    if (difference < 0) {
-      clearInterval(timer);
-      document.getElementById("countdown").innerHTML = "تم الحفل بحمد الله! 🎉";
-      return;
-    }
+<script>
+    // حدد تاريخ المناسبة هنا (السنة, الشهر - 1, اليوم, الساعة, الدقيقة)
+    // ملاحظة: شهر سبتمبر هو 8 في JavaScript لأن الشهور تبدأ من 0
+    const targetDate = new Date(2026, 8, 11, 19, 0, 0).getTime();
 
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+    const updateTimer = () => {
+        const now = new Date().getTime();
+        const difference = targetDate - now;
 
-  document.getElementById("countdown").innerHTML = 
-  days + " يوم و " + hours + " ساعة و " + minutes + " دقيقة و " + seconds + " ثانية";
+        if (difference > 0) {
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-  }, 1000);
+            document.getElementById('days').innerText = days;
+            document.getElementById('hours').innerText = hours;
+            document.getElementById('minutes').innerText = minutes;
+            document.getElementById('seconds').innerText = seconds;
+        } else {
+            document.querySelector('.timer').innerHTML = "<h3>أهلاً بكم.. حان الموعد! 🎉</h3>";
+        }
+    };
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
 </script>
 
 </body>
